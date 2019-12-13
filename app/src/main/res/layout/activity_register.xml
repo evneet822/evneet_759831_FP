@@ -1,9 +1,288 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     tools:context=".RegisterActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Registeration Form"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"/>
+
+    <TableRow
+        android:layout_marginTop="5dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Employee First Name"/>
+        <EditText
+            android:id="@+id/first_name"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="5dp"
+            android:hint="first name"
+            android:layout_weight="1"/>
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="5dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Employee Last Name"/>
+        <EditText
+            android:id="@+id/last_name"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="5dp"
+            android:hint="last name"
+            android:layout_weight="1"/>
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="5dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Employee Birth Year"/>
+        <EditText
+            android:id="@+id/birth_year"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="birth year"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"/>
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="5dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Monthly Salary"/>
+        <EditText
+            android:id="@+id/salary"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="monthly salary"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"/>
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="5dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Occupation Rate"/>
+        <EditText
+            android:id="@+id/rate"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="occupation rate"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"/>
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="5dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Employee ID"/>
+        <EditText
+            android:id="@+id/id"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="employee id"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"/>
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="5dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Employee Type"/>
+        <Spinner
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/spinner"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:entries="@array/employee_type"/>
+    </TableRow>
+    <TableRow
+        android:id="@+id/bug"
+        android:visibility="gone"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="#bugs"/>
+        <EditText
+            android:id="@+id/bugs"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="5dp"
+            android:hint="number"
+            android:layout_weight="1"/>
+    </TableRow>
+    <TableRow
+        android:id="@+id/project"
+        android:visibility="gone"
+        android:layout_marginTop="5dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="#projects"/>
+        <EditText
+            android:id="@+id/projects"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="5dp"
+            android:hint="number"
+            android:layout_weight="1"/>
+    </TableRow>
+    <TableRow
+        android:id="@+id/client"
+        android:visibility="gone"
+        android:layout_marginTop="5dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="#clients"/>
+        <EditText
+            android:id="@+id/clients"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="5dp"
+            android:hint="number"
+            android:layout_weight="1"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_marginTop="5dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Vehicle"/>
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1">
+            <RadioButton
+                android:id="@+id/r1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Car"/>
+            <RadioButton
+                android:id="@+id/r2"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_height="wrap_content"
+                android:text="Motorbike"/>
+        </RadioGroup>
+    </TableRow>
+    <TableRow
+        android:id="@+id/cartyperow"
+        android:visibility="gone"
+        android:layout_marginTop="5dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Car Type"/>
+        <EditText
+            android:id="@+id/car_type"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="5dp"
+            android:hint="number"
+            android:layout_weight="1" />
+    </TableRow>
+    <TableRow
+        android:id="@+id/sideCarRow"
+        android:visibility="gone"
+        android:layout_marginTop="5dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Side Car"/>
+        <RadioGroup
+            android:id="@+id/radio_group2"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1">
+            <RadioButton
+                android:id="@+id/r3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Yes"/>
+            <RadioButton
+                android:id="@+id/r4"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_height="wrap_content"
+                android:text="No"/>
+        </RadioGroup>
+
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="5dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Vehicle Model"/>
+        <EditText
+            android:id="@+id/model"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="Model"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"/>
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="5dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Plate Number"/>
+        <EditText
+            android:id="@+id/number"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:hint="plate number"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"/>
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="5dp">
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Vehicle Color"/>
+        <Spinner
+            android:id="@+id/color"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:entries="@array/colors"/>
+    </TableRow>
+
+    <Button
+        
+        android:id="@+id/register"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="REGISTER"
+        android:gravity="center"/>
+
+</TableLayout>

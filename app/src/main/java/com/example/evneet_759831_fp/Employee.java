@@ -67,7 +67,7 @@ public class Employee {
 
     public double AnnualIncome(){
 
-        return salary * 12;
+        return salary * 12 * occRate;
     }
 
 }

@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SearchView;
 
 import java.util.ArrayList;
 
@@ -21,13 +22,14 @@ public class MainActivity extends AppCompatActivity {
 
         Button button = findViewById(R.id.button);
         ListView listView = findViewById(R.id.list_view);
+        SearchView searchView = findViewById(R.id.search_view);
         ArrayList<String> list = new ArrayList<>();
 
         for (int i = 0; i< Employee.employeeDetails.size();i++){
             list.add(Employee.employeeDetails.get(i).Description());
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,list);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,list);
         listView.setAdapter(adapter);
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +46,20 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this,DescriptionActivity.class);
                 intent.putExtra("selected id",position);
                 startActivity(intent);
+            }
+        });
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+
+                adapter.getFilter().filter(newText);
+                return false;
             }
         });
     }

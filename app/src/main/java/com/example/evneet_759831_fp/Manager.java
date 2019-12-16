@@ -34,8 +34,11 @@ public class Manager extends Employee {
         String str = super.DetailDescription()+","+"a Manager \n";
         str += "Age:  " + super.getAge() + "\n";
         str += "Employee has a" + super.getVehicle().description() +"\n";
+        str += "Occupation rate: " + super.getOccRate()+"%\n";
+        str += "Annual income: " + "$"+super.AnnualIncome()+"\n";
+        str += "He/She has brought "+nbClients+" new clients";
 
 
-        return super.DetailDescription();
+        return str;
     }
 }

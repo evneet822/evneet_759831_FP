@@ -31,7 +31,9 @@ public class Manager extends Employee {
 
     @Override
     public String DetailDescription() {
-        
+        String str = super.DetailDescription()+","+"a Manager \n";
+        str += "Age:  " + super.getAge() + "\n";
+        str += "Employee has a";
 
         return super.DetailDescription();
     }

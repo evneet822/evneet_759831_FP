@@ -6,6 +6,7 @@ public class Car extends Vehicle {
 
 
 
+
     public Car(String make, String plateNumb, String color, String carType) {
         super(make, plateNumb, color);
         this.carType = carType;
@@ -15,5 +16,10 @@ public class Car extends Vehicle {
 
     public String getCarType() {
         return carType;
+    }
+
+    @Override
+    public String description() {
+        return super.description() +"car";
     }
 }

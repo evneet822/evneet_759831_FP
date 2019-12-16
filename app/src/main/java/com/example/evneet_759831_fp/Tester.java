@@ -5,6 +5,10 @@ public class Tester extends Employee {
     private int nbBugs;
     private int gain_factor_error = 10;
 
+    public Tester(String firstName, String lastName, int birthYear, double salary, int empID, Vehicle vehicle, int nbBugs) {
+        super(firstName, lastName, birthYear, salary, empID, vehicle);
+        this.nbBugs = nbBugs;
+    }
 
     public Tester(String firstName, String lastName, int birthYear, double salary, double occRate, int empID, Vehicle vehicle) {
         super(firstName, lastName, birthYear, salary, occRate, empID, vehicle);
@@ -13,6 +17,10 @@ public class Tester extends Employee {
     public Tester(String firstName, String lastName, int birthYear, double salary, double occRate, int empID, Vehicle vehicle, int nbBugs) {
         super(firstName, lastName, birthYear, salary, occRate, empID, vehicle);
         this.nbBugs = nbBugs;
+    }
+
+    public int getNbBugs() {
+        return nbBugs;
     }
 
     @Override

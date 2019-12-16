@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
     tools:context=".RegisterActivity">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
 
     <TextView
         android:layout_height="wrap_content"
@@ -54,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:hint="birth year"
+            android:inputType="number"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"/>
     </TableRow>
@@ -68,6 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:hint="monthly salary"
+            android:inputType="numberDecimal"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"/>
     </TableRow>
@@ -82,6 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:hint="occupation rate"
+            android:inputType="numberDecimal"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"/>
     </TableRow>
@@ -96,6 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:hint="employee id"
+            android:inputType="number"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"/>
     </TableRow>
@@ -202,7 +212,7 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_marginLeft="5dp"
-            android:hint="number"
+            android:hint="Car type"
             android:layout_weight="1" />
     </TableRow>
     <TableRow
@@ -283,6 +293,9 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:text="REGISTER"
+        android:layout_marginTop="10dp"
         android:gravity="center"/>
 
-</TableLayout>
+    </TableLayout>
+
+</ScrollView>

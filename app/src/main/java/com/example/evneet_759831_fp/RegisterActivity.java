@@ -12,6 +12,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -78,6 +79,10 @@ public class RegisterActivity extends AppCompatActivity {
         vehicleGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+
+
+
                 switch (checkedId){
                     case R.id.r1:
                         carTypeRow.setVisibility(View.VISIBLE);
@@ -97,56 +102,79 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                switch (vehicleGroup.getCheckedRadioButtonId()){
-                    case R.id.r1:
-                        v1 = new Car(vehicleModel.getText().toString(),plateNumber.getText().toString(),colorSpinner.getSelectedItem().toString(),carType.getText().toString());
-                        break;
-                    case R.id.r2:
 
-                        boolean isSidecar = false;
-                        switch (sideCarGroup.getCheckedRadioButtonId()){
-                            case R.id.r3:
-                                isSidecar = true;
-                                break;
-                            case R.id.r4:
-                                isSidecar = false;
-                                break;
+                if (!fistName.getText().toString().isEmpty()&&!lastName.getText().toString().isEmpty()&&!birthYear.getText().toString().isEmpty()&&!monthlySalary.getText().toString().isEmpty()&&!id.getText().toString().isEmpty()&&!vehicleModel.getText().toString().isEmpty()&&!plateNumber.getText().toString().isEmpty()){
+                    switch (vehicleGroup.getCheckedRadioButtonId()){
+                        case R.id.r1:
+                            v1 = new Car(vehicleModel.getText().toString(),plateNumber.getText().toString(),colorSpinner.getSelectedItem().toString(),carType.getText().toString());
+                            break;
+                        case R.id.r2:
+
+                            boolean isSidecar = false;
+                            switch (sideCarGroup.getCheckedRadioButtonId()){
+                                case R.id.r3:
+                                    isSidecar = true;
+                                    break;
+                                case R.id.r4:
+                                    isSidecar = false;
+                                    break;
                                 default:
                                     break;
-                        }
-                        v1 = new Motorcycle(vehicleModel.getText().toString(),plateNumber.getText().toString(),colorSpinner.getSelectedItem().toString(),isSidecar);
-                        break;
+                            }
+                            v1 = new Motorcycle(vehicleModel.getText().toString(),plateNumber.getText().toString(),colorSpinner.getSelectedItem().toString(),isSidecar);
+                            break;
                         default:
                             break;
+                    }
+
+                    switch (type_spinner.getSelectedItem().toString()){
+                        case "Manager":
+                            if (!rate.getText().toString().isEmpty()){
+                                e = new Manager(fistName.getText().toString(),lastName.getText().toString(),Integer.parseInt(birthYear.getText().toString()),Double.parseDouble(monthlySalary.getText().toString()),Double.parseDouble(rate.getText().toString()),Integer.parseInt(id.getText().toString()),v1,Integer.parseInt(clients.getText().toString()));
+                            }else {
+                                e = new Manager(fistName.getText().toString(),lastName.getText().toString(),Integer.parseInt(birthYear.getText().toString()),Double.parseDouble(monthlySalary.getText().toString()),Integer.parseInt(id.getText().toString()),v1,Integer.parseInt(clients.getText().toString()));
+                            }
+                            break;
+                        case "Tester":
+                            if (!rate.getText().toString().isEmpty()){
+                                e = new Tester(fistName.getText().toString(),lastName.getText().toString(),Integer.parseInt(birthYear.getText().toString()),Double.parseDouble(monthlySalary.getText().toString()),Double.parseDouble(rate.getText().toString()),Integer.parseInt(id.getText().toString()),v1,Integer.parseInt(bugs.getText().toString()));
+                            }else {
+                                e = new Tester(fistName.getText().toString(),lastName.getText().toString(),Integer.parseInt(birthYear.getText().toString()),Double.parseDouble(monthlySalary.getText().toString()),Integer.parseInt(id.getText().toString()),v1,Integer.parseInt(bugs.getText().toString()));
+                            }
+                            break;
+                        case "Programmer":
+                            if (!rate.getText().toString().isEmpty()){
+                                e = new Programmer(fistName.getText().toString(),lastName.getText().toString(),Integer.parseInt(birthYear.getText().toString()),Double.parseDouble(monthlySalary.getText().toString()),Double.parseDouble(rate.getText().toString()),Integer.parseInt(id.getText().toString()),v1,Integer.parseInt(projects.getText().toString()));
+                            }else {
+                                e = new Programmer(fistName.getText().toString(),lastName.getText().toString(),Integer.parseInt(birthYear.getText().toString()),Double.parseDouble(monthlySalary.getText().toString()),Integer.parseInt(id.getText().toString()),v1,Integer.parseInt(projects.getText().toString()));
+                            }
+                            break;
+                    }
+
+                    boolean isExsist = false;
+                    int empId = Integer.parseInt(id.getText().toString());
+
+                    for (int i = 0;i<Employee.employeeDetails.size();i++){
+                        if (empId == Employee.employeeDetails.get(i).getEmpID()){
+                            isExsist = true;
+                            break;
+                        }
+                        isExsist = false;
+                    }
+
+                    if (!isExsist){
+                        Employee.employeeDetails.add(e);
+                        Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                    }else {
+                        Toast.makeText(RegisterActivity.this, "Employee ID taken", Toast.LENGTH_SHORT).show();
+                    }
+
+                }else {
+                    Toast.makeText(RegisterActivity.this, "Fill the required fields", Toast.LENGTH_SHORT).show();
                 }
 
-                switch (type_spinner.getSelectedItem().toString()){
-                    case "Manager":
-                        if (!rate.getText().toString().isEmpty()){
-                            e = new Manager(fistName.getText().toString(),lastName.getText().toString(),Integer.parseInt(birthYear.getText().toString()),Double.parseDouble(monthlySalary.getText().toString()),Double.parseDouble(rate.getText().toString()),Integer.parseInt(id.getText().toString()),v1,Integer.parseInt(clients.getText().toString()));
-                        }else {
-                            e = new Manager(fistName.getText().toString(),lastName.getText().toString(),Integer.parseInt(birthYear.getText().toString()),Double.parseDouble(monthlySalary.getText().toString()),Integer.parseInt(id.getText().toString()),v1,Integer.parseInt(clients.getText().toString()));
-                        }
-                        break;
-                    case "Tester":
-                        if (!rate.getText().toString().isEmpty()){
-                            e = new Tester(fistName.getText().toString(),lastName.getText().toString(),Integer.parseInt(birthYear.getText().toString()),Double.parseDouble(monthlySalary.getText().toString()),Double.parseDouble(rate.getText().toString()),Integer.parseInt(id.getText().toString()),v1,Integer.parseInt(bugs.getText().toString()));
-                        }else {
-                            e = new Tester(fistName.getText().toString(),lastName.getText().toString(),Integer.parseInt(birthYear.getText().toString()),Double.parseDouble(monthlySalary.getText().toString()),Integer.parseInt(id.getText().toString()),v1,Integer.parseInt(bugs.getText().toString()));
-                        }
-                        break;
-                    case "Programmer":
-                        if (!rate.getText().toString().isEmpty()){
-                            e = new Programmer(fistName.getText().toString(),lastName.getText().toString(),Integer.parseInt(birthYear.getText().toString()),Double.parseDouble(monthlySalary.getText().toString()),Double.parseDouble(rate.getText().toString()),Integer.parseInt(id.getText().toString()),v1,Integer.parseInt(projects.getText().toString()));
-                        }else {
-                            e = new Programmer(fistName.getText().toString(),lastName.getText().toString(),Integer.parseInt(birthYear.getText().toString()),Double.parseDouble(monthlySalary.getText().toString()),Integer.parseInt(id.getText().toString()),v1,Integer.parseInt(projects.getText().toString()));
-                        }
-                        break;
-                }
-                Employee.employeeDetails.add(e);
-                Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
             }
         });
 

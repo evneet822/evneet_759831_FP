@@ -20,6 +20,11 @@ public class Car extends Vehicle {
 
     @Override
     public String description() {
-        return super.description() +"car";
+        String s1 = super.description() +"car\n";
+        s1 += " -Model: " + super.getMake() +"\n";
+        s1 += " -Plate: " + super.getPlateNumb() +"\n";
+        s1 += " -Color: " + super.getColor() +"\n";
+        return s1;
+
     }
 }

@@ -71,7 +71,11 @@ public class Employee {
     }
 
     public String Description(){
-        return "Name: " + firstName+ "\n" + "ID: " + empID;
+        return "Name:   " + firstName+ " " + lastName + "\n" + "ID:   " + empID;
+    }
+
+    public String DetailDescription(){
+        return "Name: " + firstName+" "+lastName;
     }
 
 }

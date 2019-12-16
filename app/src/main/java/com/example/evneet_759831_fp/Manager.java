@@ -28,4 +28,11 @@ public class Manager extends Employee {
     public double AnnualIncome() {
         return super.AnnualIncome()+ (gain_factor_client*nbClients);
     }
+
+    @Override
+    public String DetailDescription() {
+        
+
+        return super.DetailDescription();
+    }
 }

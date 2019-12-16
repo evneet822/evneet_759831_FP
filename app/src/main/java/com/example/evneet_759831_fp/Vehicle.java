@@ -22,7 +22,6 @@ public class Vehicle {
         this.make = make;
         this.plateNumb = plateNumb;
         this.color = color;
-
     }
 
     public String description(){

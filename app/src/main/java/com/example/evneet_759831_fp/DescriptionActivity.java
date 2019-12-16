@@ -20,6 +20,5 @@ public class DescriptionActivity extends AppCompatActivity {
 
         textView.setText(Employee.employeeDetails.get(id).DetailDescription());
 
-
     }
 }

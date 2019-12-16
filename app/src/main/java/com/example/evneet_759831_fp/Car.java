@@ -4,15 +4,10 @@ public class Car extends Vehicle {
 
     private String carType;
 
-
-
-
     public Car(String make, String plateNumb, String color, String carType) {
         super(make, plateNumb, color);
         this.carType = carType;
     }
-
-
 
     public String getCarType() {
         return carType;
@@ -26,6 +21,5 @@ public class Car extends Vehicle {
         s1 += " -Color: " + super.getColor() +"\n";
         s1 += " -type: " + carType;
         return s1;
-
     }
 }

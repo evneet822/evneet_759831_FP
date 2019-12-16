@@ -44,10 +44,6 @@ public class RegisterActivity extends AppCompatActivity {
         final Spinner colorSpinner = findViewById(R.id.color);
 
 
-
-
-
-
         type_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -122,8 +118,6 @@ public class RegisterActivity extends AppCompatActivity {
                         break;
                         default:
                             break;
-
-
                 }
 
                 switch (type_spinner.getSelectedItem().toString()){
@@ -149,8 +143,6 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                         break;
                 }
-
-
                 Employee.employeeDetails.add(e);
                 Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

@@ -5,7 +5,6 @@ public class Manager extends Employee {
     private int nbClients;
     private int gain_factor_client = 500;
 
-
     public Manager(String firstName, String lastName, int birthYear, double salary, double occRate, int empID, Vehicle vehicle) {
         super(firstName, lastName, birthYear, salary, occRate, empID, vehicle);
     }
@@ -37,8 +36,6 @@ public class Manager extends Employee {
         str += "Occupation rate: " + super.getOccRate()+"%\n";
         str += "Annual income: " + "$"+super.AnnualIncome()+"\n";
         str += "He/She has brought "+nbClients+" new clients";
-
-
         return str;
     }
 }

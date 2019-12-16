@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button button = findViewById(R.id.button);
-        ListView listView = findViewById(R.id.list_view);
+        final ListView listView = findViewById(R.id.list_view);
         SearchView searchView = findViewById(R.id.search_view);
-        ArrayList<String> list = new ArrayList<>();
+        final ArrayList<String> list = new ArrayList<>();
 
         for (int i = 0; i< Employee.employeeDetails.size();i++){
             list.add(Employee.employeeDetails.get(i).Description());
@@ -43,8 +43,27 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                String string = (String) listView.getItemAtPosition(position);
+
+                String [] splited = string.split("ID:   ");
+
+                int id1 = Integer.parseInt(splited[1]);
+
+                int pos = 0;
+
+                for (int i = 0; i < Employee.employeeDetails.size();i++){
+
+                    if (Employee.employeeDetails.get(i).getEmpID() == id1){
+                        pos = i;
+                        break;
+                    }
+                }
+
+
+
                 Intent intent = new Intent(MainActivity.this,DescriptionActivity.class);
-                intent.putExtra("selected id",position);
+                intent.putExtra("selected id",pos);
                 startActivity(intent);
             }
         });

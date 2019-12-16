@@ -150,6 +150,7 @@ public class RegisterActivity extends AppCompatActivity {
                         break;
                 }
 
+
                 Employee.employeeDetails.add(e);
                 Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

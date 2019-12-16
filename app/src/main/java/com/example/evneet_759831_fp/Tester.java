@@ -30,7 +30,7 @@ public class Tester extends Employee {
 
     @Override
     public String DetailDescription() {
-        String str = super.DetailDescription()+","+"a Manager \n";
+        String str = super.DetailDescription()+","+" a Tester \n";
         str += "Age:  " + super.getAge() + "\n";
         str += "Employee has a" + super.getVehicle().description() +"\n";
         str += "Occupation rate: " + super.getOccRate()+"%\n";

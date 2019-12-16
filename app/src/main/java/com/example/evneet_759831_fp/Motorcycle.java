@@ -29,7 +29,7 @@ public class Motorcycle extends Vehicle {
         s1 += " -Model: " + super.getMake() +"\n";
         s1 += " -Plate: " + super.getPlateNumb() +"\n";
         s1 += " -Color: " + super.getColor() +"\n";
-        s1 += " -" + isSidecar()+"\n";
+        s1 += " -" + isSidecar();
         return s1;
     }
 }

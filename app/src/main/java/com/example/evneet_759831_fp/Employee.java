@@ -70,4 +70,8 @@ public class Employee {
         return salary * 12 * occRate;
     }
 
+    public String Description(){
+        return "Name: " + firstName+ "\n" + "ID: " + empID;
+    }
+
 }
